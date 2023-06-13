@@ -121,14 +121,108 @@ The United States is the country where the trend can be seen most. It is obvious
 
 
 **Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
-
+---When I ranked cities by sales, I found that there were only a few cities with visual differences in rankings:  "Mountain View" "New York" "San Francisco" "Sunnyvale" "San Jose" "Los Angeles" "Chicago" "Seattle" "Austin" "Palo Alto". So I take these ten cities as an example to check the best-selling products.---
 
 SQL Queries:
 
+---Mountain View
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'Mountain View'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
+---New York
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'New York'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
+---San Francisco
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'San Francisco'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
+---Sunnyvale
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'Sunnyvale'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
+---San Jose
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'San Jose'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
+---Los Angeles
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'Los Angeles'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
+---Chicago
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'Chicago'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
+---Seattle
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'Seattle'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
+---Austin
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'Austin'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
+---Palo Alto
+select al.city, p.name, count(p.name) as topselling
+from all_sessions as al
+join products as p
+on al.productsku = p.sku
+where city = 'Palo Alto'
+group by al.city, p.name
+order by count(p.name) desc
+limit 5
 
 
 Answer:
 
+City：
+It can be seen that the sales rankings of different cities are different, but most of them have products related to "Men's Short Sleeve" in Top05.
+
+Country:
 
 
 
