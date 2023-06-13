@@ -85,12 +85,39 @@ Country:
 
 SQL Queries:
 
+---For City----
+
+select city, v2productcategory, count(v2productcategory) as orderedtimes
+from all_sessions
+where city <> '(not set)' 
+and city <> 'not available in demo dataset'
+and v2productcategory <> '(not set)' 
+and productquantity >0
+group by city, v2productcategory
+order by city, count(v2productcategory) desc
+
+---For Country---
+
+select country, v2productcategory, count(v2productcategory) as orderedtimes
+from all_sessions
+where country <> '(not set)' 
+and country <> 'not available in demo dataset'
+and v2productcategory <> '(not set)' 
+and productquantity >0
+group by country, v2productcategory
+order by country, count(v2productcategory) desc
 
 
 Answer:
 
+City:
+It can be seen from the few records of confirmed order purchases that 'Nest-USA' and 'Apparel' are two relatively popular product categories.
 
-
+Country:
+The United States is the country where the trend can be seen most. It is obvious that the category of top3 is:
+"United States" "Nest-USA" 16
+"United States" "Apparel" 8
+"United States" "CatTitle" 5
 
 
 **Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
