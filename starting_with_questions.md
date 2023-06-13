@@ -5,25 +5,78 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 
 SQL Queries:
+---The Highest Level City---
 
+select city, sum(totaltransactionrevenue) as Citytotaltransactionrevenues
+from public.all_sessions
+where city <> 'not available in demo dataset'
+group by city
+order by sum(totaltransactionrevenue) desc
+limit 1
 
+---The Highest Level Country---
+
+select country, sum(totaltransactionrevenue) as countrytotaltransactionrevenues
+from public.all_sessions
+where country <> 'not available in demo dataset'
+group by country
+order by sum(totaltransactionrevenue) desc
+limit 1
 
 Answer:
-
-
+City: "San Francisco"	1564320000.00
+Country: "United States"	13154170000.00
 
 
 **Question 2: What is the average number of products ordered from visitors in each city and country?**
 
 
 SQL Queries:
+---Avg for each City---
 
+select city, avg(productquantity) as AvgCityordersquantity
+from public.all_sessions
+where city <> 'not available in demo dataset' and productquantity is not null
+group by city
+order by avg(productquantity) desc
+
+---Avg for each Country---
+
+select country, avg(productquantity) as AvgCountryordersquantity
+from public.all_sessions
+where city <> 'not available in demo dataset' and productquantity is not null
+group by country
+order by avg(productquantity) desc
 
 
 Answer:
+City:
+"Madrid"	10.0000000000000000
+"Salem"	8.0000000000000000
+"Atlanta"	4.0000000000000000
+"Houston"	2.0000000000000000
+"New York"	1.1666666666666667
+"Dallas"	1.00000000000000000000
+"Detroit"	1.00000000000000000000
+"Dublin"	1.00000000000000000000
+"Los Angeles"	1.00000000000000000000
+"Mountain View"	1.00000000000000000000
+"Palo Alto"	1.00000000000000000000
+"San Francisco"	1.00000000000000000000
+"San Jose"	1.00000000000000000000
+"Seattle"	1.00000000000000000000
+"(not set)"	1.00000000000000000000
+"Sunnyvale"	1.00000000000000000000
+"Ann Arbor"	1.00000000000000000000
+"Bengaluru"	1.00000000000000000000
+"Chicago"	1.00000000000000000000
+"Columbus"	1.00000000000000000000
 
-
-
+Country:
+"Spain"	10.0000000000000000
+"United States"	1.4000000000000000
+"India"	1.00000000000000000000
+"Ireland"	1.00000000000000000000
 
 
 **Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
