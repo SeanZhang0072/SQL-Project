@@ -81,6 +81,7 @@ Country:
 
 **Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
 
+---In order to have a clearer understanding of the number of orders placed for the product category in the group, all the lower-level categories are merged into the first level in the v2productcategory (except for Home, which accounts for too much and is not representative at all)---
 
 SQL Queries:
 
