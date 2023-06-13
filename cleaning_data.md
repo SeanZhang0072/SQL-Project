@@ -8,6 +8,7 @@ What issues will you address by cleaning the data?
 3. Missing Values
 4. Invalid Column
 5. Data Logic Issue
+6. Category Chaos
 
 Queries:
 
@@ -49,4 +50,26 @@ ALTER TABLE all_sessions DROP COLUMN column_name
 ---units_sold should be a positive value.---
 
 DELETE FROM analytics WHERE units_sold < 0
+
+---6. Category Chaos---
+
+---v2productcategory has many categories with 'Home' beginning and no 'Home' beginning two versions.---
+
+UPDATE all_sessions
+SET v2productcategory = REPLACE(v2productcategory, 'Home/', '')
+WHERE v2productcategory LIKE 'Home/%';
+
+---v2productcategory has a category names '${escCatTitle}' should be fixed as 'CatTitle'.---
+
+UPDATE all_sessions
+SET v2productcategory = 'CatTitle'
+WHERE v2productcategory = '${escCatTitle}'
+
+
+
+
+
+
+
+
 
